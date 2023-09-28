@@ -8,8 +8,7 @@ function Home() {
 
   useEffect(() => {
     getPeople().then((data) => {
-      setPeople(data.people);
-      console.log(data);
+      data.people && setPeople(data.people);
     });
   }, []);
 
