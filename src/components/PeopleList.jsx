@@ -1,12 +1,13 @@
 import { Person } from "./Person";
+import { Grid } from "@chakra-ui/react";
 
 function PeopleList({ people }) {
   return (
-    <div className="list">
+    <Grid templateColumns="repeat(5, 1fr)" gap={6}>
       {people.map((person) => (
         <Person key={person.name} {...person} />
       ))}
-    </div>
+    </Grid>
   );
 }
 export { PeopleList };

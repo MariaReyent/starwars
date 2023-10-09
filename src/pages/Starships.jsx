@@ -1,4 +1,4 @@
 function Starships() {
-  return <div>Starships</div>;
+  return <h2 className="vehicle-heading">Starships</h2>;
 }
 export { Starships };

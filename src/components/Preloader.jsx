@@ -1,9 +1,7 @@
+import { CircularProgress, CircularProgressLabel } from "@chakra-ui/react";
+
 function Preloader() {
-  return (
-    <div className="progress">
-      <div className="indeterminate"></div>
-    </div>
-  );
+  return <CircularProgress isIndeterminate color="black" />;
 }
 
 export { Preloader };

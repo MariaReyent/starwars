@@ -1,40 +1,22 @@
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  Heading,
-  Stack,
-  StackDivider,
-  Box,
-} from "@chakra-ui/react";
+import { Card, Text, CardBody } from "@chakra-ui/react";
+import { GridItem } from "@chakra-ui/react";
 
 function Person(props) {
-  const { name, gender, species, homeworld } = props;
+  const { name, url } = props;
+
+  const personId = url
+    .replace("https://swapi.dev/api/people/", "")
+    .replace("/", "");
+
+  const imgSrc = `./image/${personId}.jpg`;
 
   return (
-    <Card>
-      <CardHeader>
-        <Heading size="md">{name}</Heading>
-      </CardHeader>
-
-      <CardBody>
-        <Stack divider={<StackDivider />} spacing="4">
-          <Box>
-            <Heading size="xs" textTransform="uppercase">
-              {gender}
-            </Heading>
-          </Box>
-          <Box>
-            <Heading size="xs" textTransform="uppercase">
-              {homeworld}
-            </Heading>
-          </Box>
-          <Box>
-            <Heading size="xs" textTransform="uppercase">
-              {species}
-            </Heading>
-          </Box>
-        </Stack>
+    <Card className="card">
+      <CardBody className="bg">
+        <img src={imgSrc} />
+        <Text color="white" textAlign="center" fontSize="20px">
+          {name}
+        </Text>
       </CardBody>
     </Card>
   );

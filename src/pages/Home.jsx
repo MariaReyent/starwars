@@ -5,13 +5,51 @@ import { Preloader } from "../components/Preloader";
 
 function Home() {
   const [people, setPeople] = useState([]);
+  const [page, setPage] = useState(1);
+  const [next, setNext] = useState(false);
+  const [prev, setPrevious] = useState(false);
+
+  function handleNext() {
+    setPage((prevCount) => prevCount + 1);
+    setPeople([]);
+  }
+
+  function handlePrev() {
+    setPage((prevCount) => prevCount - 1);
+    setPeople([]);
+  }
 
   useEffect(() => {
-    getPeople().then((data) => {
-      data.people && setPeople(data.people);
+    getPeople(page).then((data) => {
+      //console.log("Data from API:", data);
+      if (data) {
+        setPeople(data.results);
+      }
+      //data.previous === null ? setPrevious(false) : setPrevious(true);
+      if (data.previous) {
+        setPrevious(true);
+      }
+      if (data.next) {
+        setNext(true);
+      }
     });
-  }, []);
+  }, [page]);
+  console.log(people);
 
-  return !people.length ? <Preloader /> : <PeopleList />;
+  if (!people.length) {
+    return <Preloader />;
+  }
+
+  return (
+    <>
+      {<PeopleList people={people} />};
+      <button className="btn" onClick={handlePrev} disabled={!prev}>
+        Previous
+      </button>
+      <button className="btn" onClick={handleNext} disabled={!next}>
+        Next
+      </button>
+    </>
+  );
 }
 export { Home };

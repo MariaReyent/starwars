@@ -1,5 +1,5 @@
 function Species() {
-  return <div>Species</div>;
+  return <h2 className="vehicle-heading">Species</h2>;
 }
 
 export { Species };

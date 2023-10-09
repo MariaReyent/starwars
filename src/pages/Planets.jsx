@@ -1,4 +1,4 @@
 function Planets() {
-  return <div>Planets</div>;
+  return <h2 className="vehicle-heading">Planets</h2>;
 }
 export { Planets };

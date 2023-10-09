@@ -1,33 +1,47 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Header() {
-  return (
-    <nav className="black">
-      <div className="nav-wrapper">
-        <Link to="/" className="brand-logo">
-          People
-        </Link>
-        <ul id="nav-mobile" className="right hide-on-med-and-down">
-          <li>
-            <Link to="/planets">Planets</Link>
-          </li>
+  const linkStyle = {
+    margin: "10px",
+    color: "white",
+    fontSize: "20px",
+    backgroundColor: "purple",
+  };
 
-          <li>
-            <Link to="/species">Species</Link>
-          </li>
-          <li>
-            <Link to="/films">Films</Link>
-          </li>
-          <li>
-            <Link to="/starships">Starships</Link>
-          </li>
-          <li>
-            <Link to="/vehicles">Vehicles</Link>
-          </li>
-        </ul>
+  const getLinkStyles = ({ isActive }) => {
+    const classNames = ["link"];
+    if (isActive) {
+      classNames.push("active");
+    }
+    return classNames.join(" ");
+  };
+
+  return (
+    <nav>
+      <div>
+        <NavLink to="/" className={getLinkStyles}>
+          People
+        </NavLink>
+        <NavLink to="/films" className={getLinkStyles}>
+          Films
+        </NavLink>
+        <NavLink to="/planets" className={getLinkStyles}>
+          Planets
+        </NavLink>
+
+        <NavLink to="/species" className={getLinkStyles}>
+          Species
+        </NavLink>
+
+        <NavLink to="/starships" className={getLinkStyles}>
+          Starships
+        </NavLink>
+
+        <NavLink to="/vehicles" className={getLinkStyles}>
+          Vehicles
+        </NavLink>
       </div>
     </nav>
   );
 }
-
 export { Header };
