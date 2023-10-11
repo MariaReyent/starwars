@@ -4,7 +4,8 @@ import { getStarshipsUrl } from "../api";
 import { Preloader } from "../components/Preloader";
 
 function SinglePerson() {
-  const { url } = useParams;
+  const { starships, homeworld } = props;
+  const { url } = useParams();
   const [people, setPeople] = useState({});
 
   const starshipsId = url
@@ -15,8 +16,8 @@ function SinglePerson() {
   const goBack = () => navigate(-1);
 
   useEffect(() => {
-    getStarshipsUrl(url).then((data) => setPeople(data.people.starships));
-  }, [url]);
+    getStarshipsUrl(starshipsId).then((data) => setPeople(data.starships));
+  }, [starshipsId]);
 
   if (!people.url) {
     return <Preloader />;
@@ -27,8 +28,7 @@ function SinglePerson() {
       {people && (
         <>
           <button onClick={goBack}>Go back</button>
-          <h1>{people.starships}</h1>
-          <p>{people.homeworld}</p>
+          <h1 text-color="white">{people.starships}</h1>
         </>
       )}
     </div>

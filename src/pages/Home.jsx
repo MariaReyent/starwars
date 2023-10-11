@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { getPeople } from "../api";
 import { PeopleList } from "../components/PeopleList";
+import { SinglePerson } from "./SinglePerson";
 import { Preloader } from "../components/Preloader";
 
 function Home() {
