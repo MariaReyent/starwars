@@ -6,10 +6,11 @@ import { Planets } from "./pages/Planets";
 import { Species } from "./pages/Species";
 import { Starships } from "./pages/Starships";
 import { Vehicles } from "./pages/Vehicles";
+import { SinglePerson } from "./pages/SinglePerson";
 
 function App() {
   return (
-    <>
+    <div className="app">
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -18,8 +19,9 @@ function App() {
         <Route path="/species" element={<Species />} />
         <Route path="/starships" element={<Starships />} />
         <Route path="/vehicles" element={<Vehicles />} />
+        <Route path="/people/:url" element={<SinglePerson />} />
       </Routes>
-    </>
+    </div>
   );
 }
 

@@ -10,5 +10,11 @@ const getPeople = async (page) => {
     }
 }
 
+const getStarshipsUrl = async (url) =>{
+    const response = await fetch (`https://swapi.dev/api/starships/`+url);
+    return await response.json();
+}
 
-export {getPeople}
+
+
+export {getPeople, getStarshipsUrl}

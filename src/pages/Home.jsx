@@ -21,11 +21,10 @@ function Home() {
 
   useEffect(() => {
     getPeople(page).then((data) => {
-      //console.log("Data from API:", data);
       if (data) {
         setPeople(data.results);
       }
-      //data.previous === null ? setPrevious(false) : setPrevious(true);
+
       if (data.previous) {
         setPrevious(true);
       }
