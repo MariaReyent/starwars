@@ -19,7 +19,7 @@ function App() {
         <Route path="/species" element={<Species />} />
         <Route path="/starships" element={<Starships />} />
         <Route path="/vehicles" element={<Vehicles />} />
-        <Route path="/people/:url" element={<SinglePerson />} />
+        <Route path="/people/:id" element={<SinglePerson />} />
       </Routes>
     </div>
   );

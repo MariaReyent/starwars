@@ -10,11 +10,39 @@ const getPeople = async (page) => {
     }
 }
 
-const getStarshipsUrl = async (url) =>{
-    const response = await fetch (`https://swapi.dev/api/people/starships/`+ url);
-    return await response.json();
+const getPerson= async(id)=>{
+  try {
+    const response = await fetch(`https://swapi.dev/api/people/${id}`)
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching people:', error);
+        throw error; 
+  }
+}
+
+const getStarships = async(url)=>{
+   try {
+    const response = await fetch(url)
+    const data = await response.json();
+    return data;
+    
+   } catch (error) {
+    console.error('Error fetching people:', error);
+    throw error;
+   }
+}
+
+const getVehicles= async (url)=>{
+    try {
+        const response = await fetch(url)
+    const data = await response.json();
+    return data;
+    } catch (error) {
+        console.error('Error fetching people:', error);
+        throw error;
+    }
 }
 
 
-
-export {getPeople, getStarshipsUrl}
+export {getPeople, getPerson, getStarships, getVehicles}

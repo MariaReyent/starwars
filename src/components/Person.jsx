@@ -18,7 +18,7 @@ function Person(props) {
         <Text color="white" textAlign="center" fontSize="20px">
           {name}
         </Text>
-        <Link to={`/people/${url}`} className="btn">
+        <Link to={`/people/${personId}`} className="btn">
           See Details
         </Link>
       </CardBody>

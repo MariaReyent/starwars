@@ -1,38 +1,41 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getStarshipsUrl } from "../api";
 import { Preloader } from "../components/Preloader";
+import { getPerson, getStarships, getVehicles } from "../api";
 
 function SinglePerson() {
-  const { starships, homeworld } = props;
-  const { url } = useParams();
-  const [people, setPeople] = useState({});
+  const { id } = useParams();
+  const [starships, setStarships] = useState([]);
+  const [vehicles, setVehicles] = useState([]);
+  const [data, setData] = useState({});
 
-  const starshipsId = url
-    .replace("https://swapi.dev/api/people/starships/", "")
-    .replace("/", "");
+  const starshipsUrl = data?.starships || [];
 
-  const navigate = useNavigate();
-  const goBack = () => navigate(-1);
+  const vehiclesUrls = data?.vehicles || [];
 
   useEffect(() => {
-    getStarshipsUrl(starshipsId).then((data) => setPeople(data.starships));
-  }, [starshipsId]);
+    getPerson(id).then((data) => setData(data));
+  }, [id]);
 
-  if (!people.url) {
-    return <Preloader />;
-  }
+  useEffect(() => {
+    if (starships.length < starshipsUrl.length) {
+      starshipsUrl.forEach((url) =>
+        getStarships(url).then((data) =>
+          setStarships((prev) => [...prev, data])
+        )
+      );
+    }
 
-  return (
-    <div>
-      {people && (
-        <>
-          <button onClick={goBack}>Go back</button>
-          <h1 text-color="white">{people.starships}</h1>
-        </>
-      )}
-    </div>
-  );
+    if (vehiclesUrls.length && vehicles.length < vehiclesUrls.length) {
+      vehiclesUrls.forEach((url) =>
+        getVehicles(url).then((data) => setVehicles((prev) => [...prev, data]))
+      );
+    }
+  }, [data]);
+
+  //console.log(vehicles);
+
+  return <div style={{ color: "white" }}>SinglePerson:{id}</div>;
 }
 
 export { SinglePerson };
