@@ -1,6 +1,5 @@
 import { Card, Text, CardBody } from "@chakra-ui/react";
-import { SinglePerson } from "../pages/SinglePerson";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function Person(props) {
   const { name, url } = props;

@@ -3,11 +3,14 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
+  justify-content: center;
   min-width: 320px;
-  min-height: 100vh;
+  min-height: 100vh;  
 
 }
-html,  body { height: 100%;}
+html,  body { 
+  height: 100%;
+}
  
 .app{
   background-image: url("./img/rr.jpeg");
@@ -24,6 +27,7 @@ html,  body { height: 100%;}
   background-repeat: no-repeat;
   background-size:100% 100%;
   background-attachment: fixed; 
+ 
   
 }
 
@@ -36,10 +40,26 @@ html,  body { height: 100%;}
 
 }
 
+.single-card{
+  width: 320px;
+  padding: 20px;
+  border: 1px solid #c9c9c9;
+  background-color: purple;
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-items: center;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20vh; 
+}
 
 .btn{
   background-color: blueviolet;
   color: white;
+  width: 150px;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
@@ -48,6 +68,8 @@ html,  body { height: 100%;}
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 80px;
+  
+
  
   
 }
@@ -90,9 +112,36 @@ nav {
 }
 .bg{
   background-image: url("./img/stars.jpg");
+  
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%;
+
 }
 .card:hover{
   box-shadow: 0 8px 50px 0 rgba(226, 123, 244, 0.2);
+}
+
+.glow {
+  font-size: 80px;
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
 }
 
 

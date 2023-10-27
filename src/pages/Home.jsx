@@ -34,7 +34,6 @@ function Home() {
       }
     });
   }, [page]);
-  console.log(people);
 
   if (!people.length) {
     return <Preloader />;
@@ -43,12 +42,14 @@ function Home() {
   return (
     <>
       {<PeopleList people={people} />};
-      <button className="btn" onClick={handlePrev} disabled={!prev}>
-        Previous
-      </button>
-      <button className="btn" onClick={handleNext} disabled={!next}>
-        Next
-      </button>
+      <div className="container">
+        <button className="btn" onClick={handlePrev} disabled={!prev}>
+          Previous
+        </button>
+        <button className="btn" onClick={handleNext} disabled={!next}>
+          Next
+        </button>
+      </div>
     </>
   );
 }
