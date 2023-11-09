@@ -9,7 +9,7 @@ function Person(props) {
     .replace("/", "");
 
   const imgSrc = `./image/${personId}.jpg`;
-
+  console.log(props.test);
   return (
     <Card className="card">
       <CardBody className="bg">
