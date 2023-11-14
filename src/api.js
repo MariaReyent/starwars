@@ -69,7 +69,18 @@ const getSingleEntityByUrl = async (url)=>{
     }
 }
 
+const getPlanets = async (page) => {
+    try {
+        const response = await fetch(`https://swapi.dev/api/planets/?page=${page}`);
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error fetching planets:', error);
+        throw error; 
+    }
+}
 
 
 
-export {getPeople, getPerson, getStarships, getVehicles, getFilms, getSingleEntityByUrl}
+
+export {getPeople, getPerson, getStarships, getVehicles, getFilms, getSingleEntityByUrl, getPlanets}

@@ -1,4 +1,3 @@
-import { Person } from "./Person";
 import { Grid } from "@chakra-ui/react";
 import { SingleEntityCard } from "./SingleEntityCard";
 
