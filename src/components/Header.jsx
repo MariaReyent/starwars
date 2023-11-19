@@ -1,12 +1,12 @@
 import { NavLink } from "react-router-dom";
 
 function Header() {
-  const linkStyle = {
-    margin: "10px",
-    color: "white",
-    fontSize: "20px",
-    backgroundColor: "purple",
-  };
+  // const linkStyle = {
+  //   margin: "10px",
+  //   color: "white",
+  //   fontSize: "20px",
+  //   backgroundColor: "purple",
+  // };
 
   const getLinkStyles = ({ isActive }) => {
     const classNames = ["link"];

@@ -48,7 +48,7 @@ function SinglePerson() {
       <button className="btn" onClick={goBack}>
         Go Back
       </button>
-      <Card maxW="sm" backgroundColor="#0f040f" margin="auto">
+      <Card className="card" maxW="sm" backgroundColor="#0f040f" margin="auto">
         <CardBody>
           <Image src={imgSrc} />
           {vehicles.length > 0 ? (

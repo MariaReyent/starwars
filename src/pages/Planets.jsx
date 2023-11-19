@@ -41,9 +41,6 @@ function Planets() {
   return (
     <>
       {<PlanetsList planets={planets} />};
-      <div>
-     
-      </div>
       <div className="container">
         <button className="btn" onClick={handlePrev} disabled={!prev}>
           Previous
